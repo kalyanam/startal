@@ -92,11 +92,11 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <finalName>cashive-app</finalName>
+                    <finalName>startal-app</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>com.cashive.CashiveBootstrap</mainClass>
+                            <mainClass>com.startal.StarTalBootstrap</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

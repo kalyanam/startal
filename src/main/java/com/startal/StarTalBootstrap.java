@@ -3,6 +3,7 @@ package com.startal;
 import com.startal.dao.DAOFactory;
 import com.startal.db.DBMigrator;
 import com.startal.handler.CreateNewProfile;
+import com.startal.handler.GetAllProfiles;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
@@ -57,6 +58,7 @@ public class StarTalBootstrap {
         router.route().handler(BodyHandler.create());
 
         router.post().path("/profile").handler(this::createProfile);
+        router.get().path("/profile").handler(this::getAllProfiles);
 
         router.get().path("/ping").handler(this::handlePing);
 
@@ -70,6 +72,10 @@ public class StarTalBootstrap {
 
     private void createProfile(RoutingContext routingContext) {
         new CreateNewProfile(factory.getProfileDAO()).handle(routingContext);
+    }
+
+    private void getAllProfiles(RoutingContext routingContext) {
+        new GetAllProfiles(factory.getProfileDAO()).handle(routingContext);
     }
 
     public static void main(String[] args) {
